@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,6 @@ public class Library {
 
     @ManyToOne
     private Users user;
-    @OneToMany
-    private List<Course> course;
+    @ManyToMany
+    private List<Course> course=new ArrayList<>();
  }

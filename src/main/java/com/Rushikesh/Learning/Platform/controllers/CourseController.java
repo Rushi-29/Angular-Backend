@@ -16,11 +16,7 @@ public class CourseController {
     @Autowired
     CourseService courseService;
 
-//    @PostMapping()
-//    public String  addCourse(@RequestBody Course course){
-//        courseService.addCourse(course);
-//        return "Course Added Successsfully...!!!";
-//    }
+
     @PostMapping("add")
     public String addCourses(@RequestBody Course course){
         courseService.add(course);
@@ -50,5 +46,6 @@ public class CourseController {
         courseService.delete(Id);
         return "Deleted Successfully...!!!";
     }
+
 
 }

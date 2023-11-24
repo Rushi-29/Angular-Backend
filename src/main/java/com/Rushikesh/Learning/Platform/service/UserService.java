@@ -19,9 +19,9 @@ public class UserService {
     private ICourseRepo courseRepo;
 
 
-    public Boolean addUser(Users user) {
+    public String addUser(Users user) {
         userRepo.save(user);
-        return true;
+        return "User Added Successfully..!!!";
     }
 
     public Users getById(Integer id) {
