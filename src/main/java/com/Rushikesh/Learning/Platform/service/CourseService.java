@@ -35,7 +35,10 @@ public class CourseService {
     public void update(Course course) {
        Course course1= courseRepo.findById(course.getCourseId()).get();
        if(course!=null) {
-           courseRepo.save(course);
+           Integer qty = course.getAvailableSlots();
+           qty-=1;
+           course1.setAvailableSlots(qty);
+           courseRepo.save(course1);
        }
     }
 

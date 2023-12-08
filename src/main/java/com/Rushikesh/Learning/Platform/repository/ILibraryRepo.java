@@ -8,4 +8,10 @@ import java.util.List;
 
 public interface ILibraryRepo extends JpaRepository<Library, Integer> {
     List<Library> findByUser(Users user);
+
+    Library findFirstByUser(Users users);
+
+    Library findFirstBylibId(Integer userId);
+
+//    Library findFirstByCourse(Integer courseId);
 }

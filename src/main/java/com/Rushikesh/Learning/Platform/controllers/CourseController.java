@@ -36,7 +36,7 @@ public class CourseController {
         return  courseService.getCourseById(Id);
     }
 
-    @PutMapping()
+    @PutMapping("update")
     public String  update(@RequestBody Course course){
         courseService.update(course);
         return "update Successfully...!!!";

@@ -1,6 +1,8 @@
 package com.Rushikesh.Learning.Platform.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, scope = Course.class,property = "courseId")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,11 +25,13 @@ public class Course {
     private String duration;
     private String  price;
     private String  description;
-    private Integer rating;
-    private String type;
-    private String imageUrl;
+    private Double rating;
+    private Category type;
+    private Integer availableSlots=5;
+
+
     @JsonIgnore
-    @ManyToMany(mappedBy = "courses", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "courses", cascade = CascadeType.ALL )
     private List<Users> usersList;
 
 
